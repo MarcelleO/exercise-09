@@ -82,7 +82,7 @@ se <- (num/den)^(1/2)
 se
 # the 95% CI by hand and the p value associated with this coefficient by hand
 #Also extract this same information from the results of running the lm() function
-m.summary <- tidy(model)
+m.summary <- tidy(m_e)
 m.summary
 
 alpha <- 0.05
@@ -100,7 +100,7 @@ m.summary$calc.p.value <- 2 * pt(m.summary$calc.statistic,
   df=nrow(d)-2, lower.tail = FALSE)
 m.summary
 
-m <- lm(data = e, ECV ~ Group_size)
+m <- lm(data = d_mod, ECV ~ Group_size)
 summary(m)
 
 # use a permutation approach with 1000 permutations to generate a null sampling distribution for the slope coefficient. What is it that you need to permute? What is the p value associated with your original slope coefficient?
